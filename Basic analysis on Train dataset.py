@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 df = pd.read_csv("train.csv")
 print(df.head())
-
 print(df.isnull().sum())
 print(df[df.isnull().any(axis=1)])
 
@@ -13,7 +12,6 @@ df[num_cols] = df[num_cols].fillna(df[num_cols].median())
 
 cat_cols = df.select_dtypes(include=['object']).columns
 df[cat_cols] = df[cat_cols].fillna(df[cat_cols].mode().iloc[0])
-
 print(df.isnull().sum())
 
 # Output 1
@@ -48,6 +46,5 @@ axes2[i].tick_params(axis='x',labelrotation=15,labelsize=10)
 
 for j in range(len(categorical_cols2), len(axes2)):
     axes2[j].set_visible(False)
-
 plt.tight_layout()
 plt.show()
